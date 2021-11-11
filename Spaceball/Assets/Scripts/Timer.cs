@@ -12,11 +12,7 @@ public class Timer : MonoBehaviour
 
     private Text timeText;
 
-    private float step = 0.01f;
-
     private float start;
-
-    private float end;
 
     private float now;
 
@@ -38,28 +34,21 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fillImage.fillAmount = Mathf.InverseLerp(start, end, now);
+        fillImage.fillAmount = Mathf.InverseLerp(start, 0, now);
         timeText.text = Mathf.CeilToInt(now).ToString();
+        now -= Time.deltaTime;
     }
 
-    public void timerStart()
+    public void StartTimer(float seconds)
     {
-        start = 3;
-        end = 0;
+        start = seconds;
         now = start;
-
         canvas.SetActive(true);
-        StartCoroutine(time());
     }
 
-    IEnumerator time()
+    public void StopTimer()
     {
-        while(now - step >= end)
-        {
-            yield return new WaitForSeconds(step);
-            now -= step;
-        }
-
         canvas.SetActive(false);
     }
+
 }

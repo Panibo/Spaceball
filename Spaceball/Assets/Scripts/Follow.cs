@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+public class Follow : MonoBehaviour
 {
     public GameObject objectToFollow;
+
+    public float xOffset;
+    public float yOffset;
+    public float zOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +19,6 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(objectToFollow.transform.position.x, objectToFollow.transform.position.y, transform.position.z);
+        transform.position = new Vector3(objectToFollow.transform.position.x + xOffset, objectToFollow.transform.position.y + yOffset, transform.position.z + zOffset);
     }
 }
