@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public Animator animator;
     private float force = 1.0f;
 
     private Rigidbody2D myRigidbody;
@@ -63,6 +64,14 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (myRigidbody.velocity.sqrMagnitude < 0.1f)
+        {
+            animator.SetBool("isMoving", false);
+        } else
+        {
+            animator.SetBool("isMoving", true);
+        }
+
         if (myRigidbody.velocity.sqrMagnitude < 0.1f && !enabled &&
             (Input.GetKey(KeyCode.W) ||
             Input.GetKey(KeyCode.A) ||
