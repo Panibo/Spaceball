@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private float force = 2.0f;
+    public Animator animator;
+    private float force = 1.0f;
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D myRigidbody;
 
     private Timer timer;
 
@@ -17,15 +18,31 @@ public class Movement : MonoBehaviour
     private int rightCount = 0;
     private int leftCount = 0;
 
-    //private SpriteRenderer upArrow;
-   // private SpriteRenderer downArrow;
-    //private SpriteRenderer rightArrow;
-    //private SpriteRenderer leftArrow;
+    public GameObject arrowsObject;
+
+    public GameObject directionArrow;
+    private SpriteRenderer directionArrowRenderer;
+    private Transform directionArrowTransform;
+
+    private List<Arrow> arrows = new List<Arrow>();
+
+    private bool animationPlay;
+
+    private int maxKeyPresses = 7;
+    private struct Arrow
+    {
+        public SpriteRenderer arrowRenderer;
+        public Arrow(SpriteRenderer spriteRenderer)
+        {
+            this.arrowRenderer = spriteRenderer;
+            this.arrowRenderer.enabled = false;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        myRigidbody = gameObject.GetComponent<Rigidbody2D>();
 
         try
         {
@@ -36,96 +53,143 @@ public class Movement : MonoBehaviour
             Debug.LogError("Timer not found");
         }
 
-        //upArrow = GameObject.Find("upArrow").GetComponent<SpriteRenderer>();
-        //downArrow = GameObject.Find("downArrow").GetComponent<SpriteRenderer>();
-        //rightArrow = GameObject.Find("rightArrow").GetComponent<SpriteRenderer>();
-        //leftArrow = GameObject.Find("leftArrow").GetComponent<SpriteRenderer>();
+        for (int i = 0; i < 4; i++)
+        {
+            arrows.Add(new Arrow(arrowsObject.GetComponentsInChildren<SpriteRenderer>()[i]));
+        }
+
+        directionArrowRenderer = directionArrow.GetComponent<SpriteRenderer>();
+        directionArrowTransform = directionArrow.transform;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (rigidbody.velocity.sqrMagnitude < 0.1f && !enabled &&
+        if (myRigidbody.velocity.sqrMagnitude < 0.1f && !animationPlay)
+        {
+            animationPlay = true;
+            animator.SetBool("isMoving", false);
+        }else if(myRigidbody.velocity.sqrMagnitude >= 0.1f && !animationPlay)
+        {
+            animationPlay = true;
+            animator.SetBool("isMoving", true);
+        }
+
+        if (myRigidbody.velocity.sqrMagnitude < 0.1f && !enabled &&
             (Input.GetKey(KeyCode.W) ||
             Input.GetKey(KeyCode.A) ||
             Input.GetKey(KeyCode.S) ||
             Input.GetKey(KeyCode.D)))
         {
-
-            StartCoroutine(TimeCoroutine());
+            animator.SetBool("isMoving", true);
+            StartCoroutine(StopTime(3.0f));
 
         }
 
-            if (Input.GetKeyDown(KeyCode.W) && enabled)
+        if (Input.GetKeyDown(KeyCode.W) && enabled)
+        {
+            if(upCount <= maxKeyPresses)
             {
-                //upArrow.enabled = true;
+                StartCoroutine(ArrowFlash(arrows[0]));
                 upCount++;
+                downCount--;
             }
-            if (Input.GetKeyDown(KeyCode.S) && enabled)
+        }
+        if (Input.GetKeyDown(KeyCode.S) && enabled)
+        {   
+            if (downCount <= maxKeyPresses)
             {
-                //downArrow.enabled = true;
+                StartCoroutine(ArrowFlash(arrows[1]));
                 downCount++;
+                upCount--;
             }
-            if (Input.GetKeyDown(KeyCode.D) && enabled)
+        }
+        if (Input.GetKeyDown(KeyCode.D) && enabled)
+        { 
+            if (rightCount <= maxKeyPresses)
             {
-                //rightArrow.enabled = true;
+                StartCoroutine(ArrowFlash(arrows[2]));
                 rightCount++;
+                leftCount--;
             }
-            if (Input.GetKeyDown(KeyCode.A) && enabled)
+        }
+        if (Input.GetKeyDown(KeyCode.A) && enabled)
+        {    
+            if (leftCount <= maxKeyPresses)
             {
-                //leftArrow.enabled = true;
+                StartCoroutine(ArrowFlash(arrows[3]));
                 leftCount++;
+                rightCount--;
             }
-        
+        }
+
+        Vector2 arrowDirection = new Vector2(rightCount - leftCount, upCount - downCount);
+
+        if (arrowDirection.magnitude > 0.5f)
+        {
+            directionArrowRenderer.enabled = true;
+            float scale = Mathf.InverseLerp(0, 20, arrowDirection.magnitude) + 0.2f;
+            if(scale > 1.0f)
+            {
+                scale = 1.0f;
+            }
+
+            Debug.Log(scale);
+            directionArrowTransform.localScale = new Vector3(scale, scale, scale);
+            Vector3 rotation = new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, arrowDirection));
+            directionArrowTransform.eulerAngles = rotation;
+        }
+        else
+        {
+            directionArrowRenderer.enabled = false;
+        }
 
     }
 
-    IEnumerator TimeCoroutine()
+    private IEnumerator StopTime(float seconds)
     {
-
-        Pause();
         enabled = true;
-        yield return new WaitForSeconds(3);
-        Resume();
+        float now = seconds;
+        timer.StartTimer(3.0f);
+        myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        while (now > 0)
+        {
+            yield return new WaitForSeconds(1.0f);
+            now--;
+        }
+        myRigidbody.constraints = RigidbodyConstraints2D.None;
+
+        timer.StopTimer();
+
         enabled = false;
-        rigidbody.AddForce(new Vector2(0, force * upCount), ForceMode2D.Impulse);
-        rigidbody.AddForce(new Vector2(0, -force * downCount), ForceMode2D.Impulse);
-        rigidbody.AddForce(new Vector2(force * rightCount, 0), ForceMode2D.Impulse);
-        rigidbody.AddForce(new Vector2(-force * leftCount, 0) , ForceMode2D.Impulse);
+        myRigidbody.AddForce(new Vector2(0, force * upCount), ForceMode2D.Impulse);
+        myRigidbody.AddForce(new Vector2(0, -force * downCount), ForceMode2D.Impulse);
+        myRigidbody.AddForce(new Vector2(force * rightCount, 0), ForceMode2D.Impulse);
+        myRigidbody.AddForce(new Vector2(-force * leftCount, 0), ForceMode2D.Impulse);
 
         upCount = 0;
         downCount = 0;
         rightCount = 0;
         leftCount = 0;
 
-        //upArrow.enabled = false;
-        //downArrow.enabled = false;
-        //rightArrow.enabled = false;
-        //leftArrow.enabled = false;
+        animationPlay = false;
 
+    }
 
+    private IEnumerator ArrowFlash(Arrow arrow)
+    {
+        arrow.arrowRenderer.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        arrow.arrowRenderer.enabled = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision");
         foreach (ContactPoint2D contact in collision.contacts)
         {
             Debug.DrawRay(contact.point, contact.normal, Color.white);
         }
-    }
-
-    private void Pause()
-    {
-        Debug.Log("Pause");
-        rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-        timer.timerStart();
-    }
-
-    private void Resume()
-    {
-        Debug.Log("Resume");
-        rigidbody.constraints = RigidbodyConstraints2D.None;
     }
 }
