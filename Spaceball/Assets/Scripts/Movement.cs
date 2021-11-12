@@ -26,6 +26,8 @@ public class Movement : MonoBehaviour
 
     private List<Arrow> arrows = new List<Arrow>();
 
+    private bool animationPlay;
+
     private int maxKeyPresses = 7;
     private struct Arrow
     {
@@ -64,11 +66,13 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (myRigidbody.velocity.sqrMagnitude < 0.1f)
+        if (myRigidbody.velocity.sqrMagnitude < 0.1f && !animationPlay)
         {
+            animationPlay = true;
             animator.SetBool("isMoving", false);
-        } else
+        }else if(myRigidbody.velocity.sqrMagnitude >= 0.1f && !animationPlay)
         {
+            animationPlay = true;
             animator.SetBool("isMoving", true);
         }
 
@@ -78,7 +82,7 @@ public class Movement : MonoBehaviour
             Input.GetKey(KeyCode.S) ||
             Input.GetKey(KeyCode.D)))
         {
-
+            animator.SetBool("isMoving", true);
             StartCoroutine(StopTime(3.0f));
 
         }
@@ -169,6 +173,8 @@ public class Movement : MonoBehaviour
         downCount = 0;
         rightCount = 0;
         leftCount = 0;
+
+        animationPlay = false;
 
     }
 
