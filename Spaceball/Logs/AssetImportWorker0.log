@@ -283,3 +283,139 @@ Received Import Request.
 Start importing Assets/Scenes/Menu.unity using Guid(90847851c961c454587121c425c5ee16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '640e9756e7b63c66ef3b4a4cdcf733f5') in 0.024221 seconds 
   Import took 0.036394 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 108.660776 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5fb62de0dcb17324279f66e1f1f6f27') in 0.005549 seconds 
+  Import took 0.018599 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.851942 seconds.
+  path: Assets/Sprites/directionArrow.png
+  artifactKey: Guid(f986cba486b040247a6fa2c02dfeccb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/directionArrow.png using Guid(f986cba486b040247a6fa2c02dfeccb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0ca939a710fb0f81dba813efee5b1e7') in 0.080710 seconds 
+  Import took 0.093711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 387.772681 seconds.
+  path: Assets/Animations
+  artifactKey: Guid(b81dcb0a7deaa0d45b165a54847a6cdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations using Guid(b81dcb0a7deaa0d45b165a54847a6cdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '449ccbf1dcf12c099c9cd1cfdbfe6530') in 0.007084 seconds 
+  Import took 0.013774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 82.947240 seconds.
+  path: Assets/Animations/Sphere1green.png
+  artifactKey: Guid(912dfaee8fd5edc4f945393997cf05c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere1green.png using Guid(912dfaee8fd5edc4f945393997cf05c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f533c54c4ed76f5d1d2abe8f1a07260') in 0.025751 seconds 
+  Import took 0.032448 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000304 seconds.
+  path: Assets/Animations/Sphere2green.png
+  artifactKey: Guid(9ab8198f89083a842bd204a740c40737) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere2green.png using Guid(9ab8198f89083a842bd204a740c40737) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fd0a40d5a13b167c8081ccbfa1bee2d') in 0.022263 seconds 
+  Import took 0.028329 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000306 seconds.
+  path: Assets/Animations/Sphere3green.png
+  artifactKey: Guid(1f63040b6e3f8cb4f95f6efdfdf53690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere3green.png using Guid(1f63040b6e3f8cb4f95f6efdfdf53690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2858ce4f028cfe9dd7a633d1deb3cb9') in 0.018752 seconds 
+  Import took 0.026259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000571 seconds.
+  path: Assets/Animations/Sphere4green.png
+  artifactKey: Guid(cc7325eb58c55974ebe7e4083eb0c08b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere4green.png using Guid(cc7325eb58c55974ebe7e4083eb0c08b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88f1ae2925631cd40780ff7918858cb0') in 0.019487 seconds 
+  Import took 0.026587 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000350 seconds.
+  path: Assets/Animations/Sphere6green.png
+  artifactKey: Guid(806fe8cf41420824d84b54f37a066a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere6green.png using Guid(806fe8cf41420824d84b54f37a066a82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13078eb13f9861e5865f2f67d4b5ad3d') in 0.023770 seconds 
+  Import took 0.031166 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000347 seconds.
+  path: Assets/Animations/Sphere5green.png
+  artifactKey: Guid(3da71647b434e1442a04b4f4db7f719f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere5green.png using Guid(3da71647b434e1442a04b4f4db7f719f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91fb5d3852e4b1a8f02b9db1b530d838') in 0.022897 seconds 
+  Import took 0.029205 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 179.637269 seconds.
+  path: Assets/Animations/ActiveIdle.anim
+  artifactKey: Guid(54e59b463f2e06549a21b31580cba304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/ActiveIdle.anim using Guid(54e59b463f2e06549a21b31580cba304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8a91d8b6616b12ea2ee8ea6fb186c23') in 0.008321 seconds 
+  Import took 0.011533 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 119.657207 seconds.
+  path: Assets/Animations/Sphere1.png
+  artifactKey: Guid(03fd28c4ec5f05c408f471ac40e8b496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere1.png using Guid(03fd28c4ec5f05c408f471ac40e8b496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a57d134de5743bf2e5f8cca0bdaf8a31') in 0.009878 seconds 
+  Import took 0.013430 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/Animations/Sphere2.png
+  artifactKey: Guid(7a0a0591bc5d7d04bb3b8b46e54312af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere2.png using Guid(7a0a0591bc5d7d04bb3b8b46e54312af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd4f77fc0715e11dd8d94ad17ce80e16') in 0.009696 seconds 
+  Import took 0.012921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Animations/Sphere6.png
+  artifactKey: Guid(4f9dc45bbc8c6cd4ea74af85febd9e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere6.png using Guid(4f9dc45bbc8c6cd4ea74af85febd9e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77a9bd4ef9ef54146aaef34c01c2c6dc') in 0.010082 seconds 
+  Import took 0.013593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000203 seconds.
+  path: Assets/Animations/Sphere3.png
+  artifactKey: Guid(ccd680081f22c9649959e75c2f18eb92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere3.png using Guid(ccd680081f22c9649959e75c2f18eb92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67f48d976560860bdcae60fd70d7d07c') in 0.008699 seconds 
+  Import took 0.012050 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/Animations/Sphere4.png
+  artifactKey: Guid(7898862f9fa249b479a75a3eb5762b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere4.png using Guid(7898862f9fa249b479a75a3eb5762b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40891584e6acac207730ec5135200157') in 0.008699 seconds 
+  Import took 0.011404 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Animations/Sphere5.png
+  artifactKey: Guid(c43e5289719e80542ba923ec7ae90504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sphere5.png using Guid(c43e5289719e80542ba923ec7ae90504) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43d9328ba1c348b61d15ff849efd640d') in 0.009357 seconds 
+  Import took 0.012682 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 96.386039 seconds.
+  path: Assets/Animations/InactiveIdle.anim
+  artifactKey: Guid(8b1fb2ed08300aa46b684f4712c9ade0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/InactiveIdle.anim using Guid(8b1fb2ed08300aa46b684f4712c9ade0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fa2089d769e117a77c597799dfe5144') in 0.003203 seconds 
+  Import took 0.013143 seconds .
+
