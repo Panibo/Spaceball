@@ -1,24 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClickSound : MonoBehaviour
+public class Audio : MonoBehaviour
 {
-    public AudioClip sound;
-    private Button button { get { return GetComponent<Button>(); } }
-    private static AudioSource soundPlay;
+    public AudioClip clickSound;
+    private AudioSource audioSource;
+    Button button;
+
 
     void Start()
     {
-
-        button.onClick.AddListener(() => PlaySound());
-
+        audioSource = GetComponent<AudioSource>();
+        button = GameObject.FindWithTag("ClickButton").GetComponent<Button>();
+        button.onClick.AddListener(() => Click());
+        
     }
-    void PlaySound()
+
+    void Update()
     {
-        soundPlay = Instantiate(gameObject.AddComponent<AudioSource>());
-        soundPlay.clip = sound;
-        soundPlay.playOnAwake = false;
-        soundPlay.PlayOneShot(sound);
-        DestroyObject(soundPlay, 1f);
+        /*if (Input.GetMouseButtonDown(0))
+        {
+            Click();
+        }*/
+    }
+
+    void Click()
+    {
+        audioSource.clip = clickSound;
+        
     }
 }
